@@ -51,13 +51,19 @@
     <Compile Include="BrokenReader.cs" />
     <Compile Include="CachingReaderTests.cs" />
     <Compile Include="CountedReader.cs" />
+    <Compile Include="ExceptionLoggingReaderTests.cs" />
     <Compile Include="RetryReaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringLogger.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{1b82b92c-6693-4922-ae9a-9cacb5c4e24f}</Project>
       <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logging\Logging.csproj">
+      <Project>{fb787be4-a423-4172-a16e-10a890803e75}</Project>
+      <Name>Logging</Name>
     </ProjectReference>
     <ProjectReference Include="..\PersonReader.Decorators\PersonReader.Decorators.csproj">
       <Project>{d7f04160-a25d-418c-9df0-cd2a0cf6c35d}</Project>

@@ -1,4 +1,5 @@
-﻿using PeopleViewer.Presentation;
+﻿using Logging;
+using PeopleViewer.Presentation;
 using PersonReader.CSV;
 using PersonReader.Decorators;
 using PersonReader.Service;
@@ -28,7 +29,8 @@ namespace PeopleViewer
         {
             var reader = new ServiceReader();
             var retryReader = new RetryReader(reader);
-            var loggingReader = new ExceptionLoggingReader(retryReader);
+            var logger = new FileLogger();
+            var loggingReader = new ExceptionLoggingReader(retryReader, logger);
             var duration = new TimeSpan(0, 0, 10);
             var cachingReader = new CachingReader(loggingReader, duration);
             var viewModel = new PeopleReaderViewModel(cachingReader);

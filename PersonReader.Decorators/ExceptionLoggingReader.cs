@@ -1,4 +1,5 @@
 ﻿using Common;
+using Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,10 +10,12 @@ namespace PersonReader.Decorators
     public class ExceptionLoggingReader : IPersonReader
     {
         IPersonReader _wrappedReader;
+        ILogger _logger;
 
-        public ExceptionLoggingReader(IPersonReader wrappedReader)
+        public ExceptionLoggingReader(IPersonReader wrappedReader, ILogger logger)
         {
             _wrappedReader = wrappedReader;
+            _logger = logger;
         }
 
         public async Task<IEnumerable<Person>> GetPeople()
@@ -23,7 +26,7 @@ namespace PersonReader.Decorators
             }
             catch (Exception ex)
             {
-                LogException(ex);
+                await _logger.LogException(ex);
                 throw;
             }
         }
@@ -36,22 +39,8 @@ namespace PersonReader.Decorators
             }
             catch (Exception ex)
             {
-                LogException(ex);
+                await _logger.LogException(ex);
                 throw;
-            }
-        }
-
-        private async void LogException(Exception ex)
-        {
-            string filePath = AppDomain.CurrentDomain.BaseDirectory + "ExceptionLog.txt";
-            using (var sr = new StreamWriter(filePath, true))
-            {
-                await sr.WriteLineAsync("--------------------------------------");
-                await sr.WriteLineAsync($"START {DateTime.Now}");
-                await sr.WriteLineAsync("EXCEPTION");
-                await sr.WriteLineAsync($"{ex}");
-                await sr.WriteLineAsync($"END {DateTime.Now}");
-                await sr.WriteLineAsync("--------------------------------------");
             }
         }
     }
