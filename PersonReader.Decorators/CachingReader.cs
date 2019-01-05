@@ -12,11 +12,13 @@ namespace PersonReader.Decorators
 
         private IEnumerable<Person> _cachedItems;
         private DateTime _dataDateTime;
-        private TimeSpan _cacheDuration = new TimeSpan(0, 0, 30);
+        private TimeSpan _cacheDuration;
 
-        public CachingReader(IPersonReader wrappedReader)
+        public CachingReader(IPersonReader wrappedReader,
+            TimeSpan duration)
         {
             _wrappedReader = wrappedReader;
+            _cacheDuration = duration;
         }
 
         public async Task<IEnumerable<Person>> GetPeople()

@@ -49,6 +49,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BrokenReader.cs" />
+    <Compile Include="CachingReaderTests.cs" />
+    <Compile Include="CountedReader.cs" />
     <Compile Include="RetryReaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
