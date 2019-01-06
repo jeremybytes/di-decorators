@@ -2,17 +2,19 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{E3FC00AA-A9E7-4E6F-9DDC-5E7C1D21E53A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>PeopleViewer</RootNamespace>
     <AssemblyName>PeopleViewer</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -123,10 +125,16 @@
       <Project>{6d8e1a3e-396b-4474-8a35-80b5e967f6ff}</Project>
       <Name>PersonReader.Service</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PersonReader.SQL\PersonReader.SQL.csproj">
+      <Project>{22bb9b30-f48a-48ce-ba52-1e902f9dd477}</Project>
+      <Name>PersonReader.SQL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(SolutionDir)AdditionalFiles\*.*" "$(TargetDir)" /Y
+xcopy "$(SolutionDir)AdditionalFiles\x86\*.*" "$(TargetDir)x86\" /Y
+xcopy "$(SolutionDir)AdditionalFiles\x64\*.*" "$(TargetDir)x64\" /Y
 </PostBuildEvent>
   </PropertyGroup>
 </Project>

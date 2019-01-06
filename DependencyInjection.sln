@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonReader.Decorator.Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging", "Logging\Logging.csproj", "{FB787BE4-A423-4172-A16E-10A890803E75}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonReader.SQL", "PersonReader.SQL\PersonReader.SQL.csproj", "{22BB9B30-F48A-48CE-BA52-1E902F9DD477}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{FB787BE4-A423-4172-A16E-10A890803E75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB787BE4-A423-4172-A16E-10A890803E75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB787BE4-A423-4172-A16E-10A890803E75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22BB9B30-F48A-48CE-BA52-1E902F9DD477}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22BB9B30-F48A-48CE-BA52-1E902F9DD477}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22BB9B30-F48A-48CE-BA52-1E902F9DD477}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22BB9B30-F48A-48CE-BA52-1E902F9DD477}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -103,6 +109,7 @@ Global
 		{90FDE374-3403-4F1D-90FC-BDEE7BC5F91C} = {AC3CFB83-BBF1-4AFD-ADEE-87DCA241A885}
 		{FC36073E-2970-4834-9462-5563F4C3BFF4} = {AC3CFB83-BBF1-4AFD-ADEE-87DCA241A885}
 		{FB787BE4-A423-4172-A16E-10A890803E75} = {817DFB31-DAED-403F-9FAD-312AF1E2CE89}
+		{22BB9B30-F48A-48CE-BA52-1E902F9DD477} = {8B6B7025-E752-4115-8218-64828E028752}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {62280A51-57F7-4AEB-B108-3A00B1574DEA}

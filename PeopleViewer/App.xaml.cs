@@ -3,6 +3,7 @@ using PeopleViewer.Presentation;
 using PersonReader.CSV;
 using PersonReader.Decorators;
 using PersonReader.Service;
+using PersonReader.SQL;
 using System;
 using System.Windows;
 using System.Windows.Threading;
@@ -27,7 +28,7 @@ namespace PeopleViewer
 
         private static void ComposeObjects()
         {
-            var reader = new ServiceReader();
+            var reader = new CSVReader();
             var retryReader = new RetryReader(reader);
             var logger = new FileLogger();
             var loggingReader = new ExceptionLoggingReader(retryReader, logger);
