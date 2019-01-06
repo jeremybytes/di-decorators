@@ -36,5 +36,18 @@ namespace PeopleViewer
             var viewModel = new PeopleReaderViewModel(cachingReader);
             Application.Current.MainWindow = new MainWindow(viewModel);
         }
+
+        private static void AlternateComposeObjects()
+        {
+            Application.Current.MainWindow =
+                new MainWindow(
+                    new PeopleReaderViewModel(
+                        new CachingReader(
+                            new ExceptionLoggingReader(
+                                new RetryReader(
+                                    new ServiceReader()),
+                                new FileLogger()),
+                            new TimeSpan(0, 0, 10))));
+        }
     }
 }
