@@ -6,7 +6,8 @@ Articles:
 https://jeremybytes.blogspot.com/2019/01/more-di-async-interfaces-decorators-and.html
 * More DI: Async Interfaces  
 https://jeremybytes.blogspot.com/2019/01/more-di-async-interfaces.html
-* More DI: Decorators (coming soon)
+* More DI: Adding Retry with the Decorator Pattern  https://jeremybytes.blogspot.com/2019/01/more-di-adding-retry-with-decorator.html
+* More DI: Other Decorators (coming soon)
 * More DI: Async Unit Tests (coming soon)
 * More DI: Dealing with .NET Standard and .NET Framework (coming soon)
 * More DI: General Purpose Decorators (coming soon)
