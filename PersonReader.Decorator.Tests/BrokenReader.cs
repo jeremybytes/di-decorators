@@ -12,7 +12,7 @@ namespace PersonReader.Decorator.Tests
         private int brokenCount;
         private int retryCount;
 
-        List<Person> testPeople = new List<Person>()
+        IEnumerable<Person> testPeople = new List<Person>()
             {
                 new Person() {Id = 1,
                     GivenName = "John", FamilyName = "Smith",
@@ -28,7 +28,7 @@ namespace PersonReader.Decorator.Tests
             retryCount = 0;
         }
 
-        public async Task<IEnumerable<Person>> GetPeople()
+        public Task<IEnumerable<Person>> GetPeople()
         {
             if (retryCount < brokenCount)
             {
@@ -36,8 +36,7 @@ namespace PersonReader.Decorator.Tests
                 throw new Exception("Cannot retrieve data");
             }
 
-            await Task.Delay(1);
-            return testPeople;
+            return Task.FromResult(testPeople);
         }
 
         public Task<Person> GetPerson(int id)
