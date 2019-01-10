@@ -8,7 +8,8 @@ https://jeremybytes.blogspot.com/2019/01/more-di-async-interfaces-decorators-and
 https://jeremybytes.blogspot.com/2019/01/more-di-async-interfaces.html
 * More DI: Adding Retry with the Decorator Pattern  
 https://jeremybytes.blogspot.com/2019/01/more-di-adding-retry-with-decorator.html
+* More DI: Unit Testing Async Methods  
+https://jeremybytes.blogspot.com/2019/01/more-di-unit-testing-async-methods.html
 * More DI: Other Decorators (coming soon)
-* More DI: Async Unit Tests (coming soon)
 * More DI: Dealing with .NET Standard and .NET Framework (coming soon)
 * More DI: General Purpose Decorators (coming soon)
