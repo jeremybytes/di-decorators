@@ -9,10 +9,9 @@ namespace PeopleViewer.Presentation.Tests
     public class FakeRepository : IPersonReader
     {
 
-        public async Task<IEnumerable<Person>> GetPeople()
+        public Task<IEnumerable<Person>> GetPeople()
         {
-            await Task.Delay(1);
-            var people = new List<Person>()
+            IEnumerable<Person> people = new List<Person>()
             {
                 new Person() {Id = 1,
                     GivenName = "John", FamilyName = "Smith",
@@ -22,7 +21,7 @@ namespace PeopleViewer.Presentation.Tests
                     Rating = 9, StartDate = new DateTime(1971, 7, 23)},
             };
 
-            return people;
+            return Task.FromResult(people);
         }
 
         public async Task<Person> GetPerson(int id)

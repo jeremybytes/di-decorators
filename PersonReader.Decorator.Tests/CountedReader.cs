@@ -11,18 +11,18 @@ namespace PersonReader.Decorator.Tests
     {
         public int CallCount { get; set; }
 
-        public async Task<IEnumerable<Person>> GetPeople()
+        public Task<IEnumerable<Person>> GetPeople()
         {
-            await Task.Delay(1);
             CallCount++;
-            return new List<Person>();
+            IEnumerable<Person> empty = new List<Person>();
+            return Task.FromResult(empty);
         }
 
-        public async Task<Person> GetPerson(int id)
+        public Task<Person> GetPerson(int id)
         {
-            await Task.Delay(1);
             CallCount++;
-            return new Person();
+            Person empty = new Person();
+            return Task.FromResult(empty);
         }
     }
 }

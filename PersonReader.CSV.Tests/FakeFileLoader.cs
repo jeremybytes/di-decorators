@@ -11,17 +11,24 @@ namespace PersonReader.CSV.Tests
             this.dataType = dataType;
         }
 
-        public async Task<string> LoadFile()
+        public Task<string> LoadFile()
         {
-            await Task.Delay(1);
+            string fileData = string.Empty;
             switch (dataType)
             {
-                case "Good": return TestData.WithGoodRecords;
-                case "Mixed": return TestData.WithGoodAndBadRecords;
-                case "Bad": return TestData.WithOnlyBadRecords;
-                case "Empty": return string.Empty;
-                default: return TestData.WithGoodRecords;
+                case "Good": fileData = TestData.WithGoodRecords;
+                    break;
+                case "Mixed": fileData = TestData.WithGoodAndBadRecords;
+                    break;
+                case "Bad": fileData = TestData.WithOnlyBadRecords;
+                    break;
+                case "Empty": fileData = string.Empty;
+                    break;
+                default: fileData = TestData.WithGoodRecords;
+                    break;
             }
+
+            return Task.FromResult(fileData);
         }
     }
 }

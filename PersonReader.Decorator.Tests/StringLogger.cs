@@ -13,16 +13,16 @@ namespace PersonReader.Decorator.Tests
             Log = string.Empty;
         }
 
-        public async Task LogException(Exception ex)
+        public Task LogException(Exception ex)
         {
-            await Task.Delay(1);
             Log += $"{ex}";
+            return Task.CompletedTask;
         }
 
-        public async Task LogMessage(string message)
+        public Task LogMessage(string message)
         {
-            await Task.Delay(1);
             Log += $"{message}";
+            return Task.CompletedTask;
         }
     }
 }
