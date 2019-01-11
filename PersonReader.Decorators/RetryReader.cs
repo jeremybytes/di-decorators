@@ -9,10 +9,13 @@ namespace PersonReader.Decorators
     {
         private IPersonReader _wrappedReader;
         private int retryCount = 0;
+        private TimeSpan delay;
 
-        public RetryReader(IPersonReader wrappedReader)
+        public RetryReader(IPersonReader wrappedReader,
+            TimeSpan retryDelay)
         {
             _wrappedReader = wrappedReader;
+            delay = retryDelay;
         }
 
         public async Task<IEnumerable<Person>> GetPeople()
@@ -28,7 +31,7 @@ namespace PersonReader.Decorators
             {
                 if (retryCount >= 3)
                     throw;
-                await Task.Delay(3000);
+                await Task.Delay(delay);
                 return await this.GetPeople();
             }
         }
@@ -46,7 +49,7 @@ namespace PersonReader.Decorators
             {
                 if (retryCount >= 3)
                     throw;
-                await Task.Delay(3000);
+                await Task.Delay(delay);
                 return await this.GetPerson(id);
             }
         }
