@@ -12,7 +12,7 @@ namespace Logging
         {
             using (var sr = new StreamWriter(filePath, true))
             {
-                await sr.WriteAsync($"MESSAGE {DateTime.Now}: {message}");
+                await sr.WriteLineAsync($"MESSAGE {DateTime.Now}: {message}");
             }
         }
 
@@ -20,12 +20,15 @@ namespace Logging
         {
             using (var sr = new StreamWriter(filePath, true))
             {
-                await sr.WriteLineAsync("--------------------------------------");
-                await sr.WriteLineAsync($"START {DateTime.Now}");
-                await sr.WriteLineAsync("EXCEPTION");
-                await sr.WriteLineAsync($"{ex}");
-                await sr.WriteLineAsync($"END {DateTime.Now}");
-                await sr.WriteLineAsync("--------------------------------------");
+                string message = "--------------------------------------";
+                message += Environment.NewLine;
+                message += $"START {DateTime.Now}{Environment.NewLine}";
+                message += $"EXCEPTION{Environment.NewLine}";
+                message += $"{ex}{Environment.NewLine}";
+                message += $"END {DateTime.Now}{Environment.NewLine}";
+                message += "--------------------------------------";
+
+                await sr.WriteLineAsync(message);
             }
         }
     }
