@@ -25,18 +25,19 @@ namespace PersonReader.Decorator.Tests
             var wrapped = new BrokenReader(1);
             var logger = new StringLogger();
             var reader = new ExceptionLoggingReader(wrapped, logger);
+            var expectedMessage = "INVALIDEXCEPTIONMESSAGE";
 
             try
             {
                 await reader.GetPeople();
                 Assert.Fail("No exception thrown");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                // Ignore the exception
+                expectedMessage = ex.Message;
             }
 
-            Assert.That(() => logger.Log.Contains("Cannot retrieve data"));
+            Assert.That(() => logger.Log.Contains(expectedMessage));
         }
     }
 }
