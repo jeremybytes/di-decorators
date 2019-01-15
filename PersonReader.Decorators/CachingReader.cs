@@ -63,12 +63,13 @@ namespace PersonReader.Decorators
                       FamilyName = string.Empty, Rating = 0,
                       StartDate = DateTime.Today},
                 };
+                InvalidateCache();
             }
         }
 
         private void InvalidateCache()
         {
-            _cachedItems = null;
+            _dataDateTime = DateTime.MinValue;
         }
     }
 }
