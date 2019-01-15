@@ -11,7 +11,8 @@ namespace PersonReader.Decorator.Tests
         public async Task GetPeople_Broken0_ReturnsPeople()
         {
             var fakeReader = new BrokenReader(0);
-            var reader = new RetryReader(fakeReader);
+            var retryDelay = new TimeSpan(0);
+            var reader = new RetryReader(fakeReader, retryDelay);
 
             var result = await reader.GetPeople();
 
@@ -19,11 +20,11 @@ namespace PersonReader.Decorator.Tests
         }
 
         [Test]
-        [Category("Slow")]
         public async Task GetPeople_Broken1_ReturnsPeople()
         {
             var fakeReader = new BrokenReader(1);
-            var reader = new RetryReader(fakeReader);
+            var retryDelay = new TimeSpan(0);
+            var reader = new RetryReader(fakeReader, retryDelay);
 
             var result = await reader.GetPeople();
 
@@ -31,11 +32,11 @@ namespace PersonReader.Decorator.Tests
         }
 
         [Test]
-        [Category("Slow")]
         public async Task GetPeople_Broken3_ThrowsException()
         {
             var fakeReader = new BrokenReader(3);
-            var reader = new RetryReader(fakeReader);
+            var retryDelay = new TimeSpan(0);
+            var reader = new RetryReader(fakeReader, retryDelay);
 
             try
             {

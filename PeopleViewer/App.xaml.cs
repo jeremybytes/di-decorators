@@ -29,7 +29,8 @@ namespace PeopleViewer
         private static void ComposeObjects()
         {
             var reader = new CSVReader();
-            var retryReader = new RetryReader(reader);
+            var delay = new TimeSpan(0, 0, 3);
+            var retryReader = new RetryReader(reader, delay);
             var logger = new FileLogger();
             var loggingReader = new ExceptionLoggingReader(retryReader, logger);
             var duration = new TimeSpan(0, 0, 10);
@@ -46,7 +47,8 @@ namespace PeopleViewer
                         new CachingReader(
                             new ExceptionLoggingReader(
                                 new RetryReader(
-                                    new ServiceReader()),
+                                    new ServiceReader(),
+                                    new TimeSpan(0, 0, 3)),
                                 new FileLogger()),
                             new TimeSpan(0, 0, 10))));
         }

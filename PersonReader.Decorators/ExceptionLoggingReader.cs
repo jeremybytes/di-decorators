@@ -12,7 +12,8 @@ namespace PersonReader.Decorators
         IPersonReader _wrappedReader;
         ILogger _logger;
 
-        public ExceptionLoggingReader(IPersonReader wrappedReader, ILogger logger)
+        public ExceptionLoggingReader(IPersonReader wrappedReader, 
+            ILogger logger)
         {
             _wrappedReader = wrappedReader;
             _logger = logger;
@@ -26,7 +27,7 @@ namespace PersonReader.Decorators
             }
             catch (Exception ex)
             {
-                await _logger.LogException(ex);
+                await _logger?.LogException(ex);
                 throw;
             }
         }
@@ -39,7 +40,7 @@ namespace PersonReader.Decorators
             }
             catch (Exception ex)
             {
-                await _logger.LogException(ex);
+                await _logger?.LogException(ex);
                 throw;
             }
         }

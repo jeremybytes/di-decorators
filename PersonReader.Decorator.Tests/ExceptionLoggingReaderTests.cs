@@ -10,7 +10,7 @@ namespace PersonReader.Decorator.Tests
         [Test]
         public async Task GetPeople_OnNoException_NothingLogged()
         {
-            var wrapped = new BrokenReader();
+            var wrapped = new BrokenReader(0);
             var logger = new StringLogger();
             var reader = new ExceptionLoggingReader(wrapped, logger);
 
