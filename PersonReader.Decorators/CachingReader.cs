@@ -9,10 +9,10 @@ namespace PersonReader.Decorators
     public class CachingReader : IPersonReader
     {
         private IPersonReader _wrappedReader;
+        private TimeSpan _cacheDuration;
 
         private IEnumerable<Person> _cachedItems;
         private DateTime _dataDateTime;
-        private TimeSpan _cacheDuration;
 
         public CachingReader(IPersonReader wrappedReader,
             TimeSpan duration)
@@ -37,6 +37,8 @@ namespace PersonReader.Decorators
         {
             get
             {
+                if (_cachedItems == null)
+                    return false;
                 var _cacheAge = DateTime.Now - _dataDateTime;
                 return _cacheAge < _cacheDuration;
             }
@@ -44,26 +46,29 @@ namespace PersonReader.Decorators
 
         private async Task ValidateCache()
         {
-            if (_cachedItems == null || !IsCacheValid)
+            if (IsCacheValid)
+                return;
+
+            try
             {
-                try
+                _cachedItems = await _wrappedReader.GetPeople();
+                _dataDateTime = DateTime.Now;
+            }
+            catch
+            {
+                _cachedItems = new List<Person>()
                 {
-                    _cachedItems = await _wrappedReader.GetPeople();
-                    _dataDateTime = DateTime.Now;
-                }
-                catch
-                {
-                    _cachedItems = new List<Person>()
-                    {
-                        new Person(){ GivenName = "No Data Available", FamilyName = string.Empty, Rating = 0, StartDate = DateTime.Today},
-                    };
-                }
+                    new Person()
+                    { GivenName = "No Data Available",
+                      FamilyName = string.Empty, Rating = 0,
+                      StartDate = DateTime.Today},
+                };
             }
         }
 
         private void InvalidateCache()
         {
-            _dataDateTime = DateTime.MinValue;
+            _cachedItems = null;
         }
     }
 }
