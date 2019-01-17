@@ -28,7 +28,7 @@ namespace PeopleViewer
 
         private static void ComposeObjects()
         {
-            var reader = new CSVReader();
+            var reader = new ServiceReader();
             var delay = new TimeSpan(0, 0, 3);
             var retryReader = new RetryReader(reader, delay);
             var logger = new FileLogger();
