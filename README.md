@@ -30,6 +30,7 @@ https://jeremybytes.blogspot.com/2019/01/more-di-unit-testing-async-methods.html
 https://jeremybytes.blogspot.com/2019/01/more-di-adding-exception-logging-with.html
 * More DI: Adding a Client-Side Cache with the Decorator Pattern  
 https://jeremybytes.blogspot.com/2019/01/more-di-adding-client-side-cache-with.html
-* More DI: Stacking Decorators (coming soon)
+* More DI: The Real Power of Decorators -- Stacking Functionality  
+https://jeremybytes.blogspot.com/2019/01/more-di-real-power-of-decorators.html
 * More DI: Dealing with .NET Standard and .NET Framework (coming soon)
 * More DI: General Purpose Decorators (coming soon)
