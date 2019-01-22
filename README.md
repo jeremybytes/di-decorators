@@ -32,5 +32,6 @@ https://jeremybytes.blogspot.com/2019/01/more-di-adding-exception-logging-with.h
 https://jeremybytes.blogspot.com/2019/01/more-di-adding-client-side-cache-with.html
 * More DI: The Real Power of Decorators -- Stacking Functionality  
 https://jeremybytes.blogspot.com/2019/01/more-di-real-power-of-decorators.html
-* More DI: Dealing with .NET Standard and .NET Framework (coming soon)
+* Weirdness with EF Core 2 (SQLite), .NET Standard, and .NET Framework  
+https://jeremybytes.blogspot.com/2019/01/weirdness-with-ef-core-2-sqlite-net.html
 * More DI: General Purpose Decorators (coming soon)
