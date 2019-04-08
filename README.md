@@ -35,3 +35,6 @@ https://jeremybytes.blogspot.com/2019/01/more-di-real-power-of-decorators.html
 * Weirdness with EF Core 2 (SQLite), .NET Standard, and .NET Framework  
 https://jeremybytes.blogspot.com/2019/01/weirdness-with-ef-core-2-sqlite-net.html
 * More DI: General Purpose Decorators (coming soon)
+
+## WPF and .NET Core 3.0
+See the "core30" branch for code converting WPF to .NET Core 3.0 (Preview).
