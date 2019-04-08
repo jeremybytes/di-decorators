@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj" />
+    <ProjectReference Include="..\Logging\Logging.csproj" />
+    <ProjectReference Include="..\PeopleViewer.Presentation\PeopleViewer.Presentation.csproj" />
+    <ProjectReference Include="..\PersonReader.CSV\PersonReader.CSV.csproj" />
+    <ProjectReference Include="..\PersonReader.Decorators\PersonReader.Decorators.csproj" />
+    <ProjectReference Include="..\PersonReader.Service\PersonReader.Service.csproj" />
+    <ProjectReference Include="..\PersonReader.SQL\PersonReader.SQL.csproj" />
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(SolutionDir)AdditionalFiles\*.*&quot; &quot;$(TargetDir)&quot; /Y" />
+  </Target>
+
+</Project>

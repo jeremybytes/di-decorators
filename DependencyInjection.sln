@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2035
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{1B82B92C-6693-4922-AE9A-9CACB5C4E24F}"
 EndProject
@@ -35,9 +35,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonReader.CSV.Tests", "P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonReader.Decorator.Tests", "PersonReader.Decorator.Tests\PersonReader.Decorator.Tests.csproj", "{FC36073E-2970-4834-9462-5563F4C3BFF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging", "Logging\Logging.csproj", "{FB787BE4-A423-4172-A16E-10A890803E75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logging", "Logging\Logging.csproj", "{FB787BE4-A423-4172-A16E-10A890803E75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonReader.SQL", "PersonReader.SQL\PersonReader.SQL.csproj", "{22BB9B30-F48A-48CE-BA52-1E902F9DD477}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonReader.SQL", "PersonReader.SQL\PersonReader.SQL.csproj", "{22BB9B30-F48A-48CE-BA52-1E902F9DD477}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleViewer.Core", "PeopleViewer.Core\PeopleViewer.Core.csproj", "{B0667116-2165-4F13-BD84-622AA8F29FE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +95,10 @@ Global
 		{22BB9B30-F48A-48CE-BA52-1E902F9DD477}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22BB9B30-F48A-48CE-BA52-1E902F9DD477}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22BB9B30-F48A-48CE-BA52-1E902F9DD477}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0667116-2165-4F13-BD84-622AA8F29FE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0667116-2165-4F13-BD84-622AA8F29FE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0667116-2165-4F13-BD84-622AA8F29FE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0667116-2165-4F13-BD84-622AA8F29FE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -110,6 +116,7 @@ Global
 		{FC36073E-2970-4834-9462-5563F4C3BFF4} = {AC3CFB83-BBF1-4AFD-ADEE-87DCA241A885}
 		{FB787BE4-A423-4172-A16E-10A890803E75} = {817DFB31-DAED-403F-9FAD-312AF1E2CE89}
 		{22BB9B30-F48A-48CE-BA52-1E902F9DD477} = {8B6B7025-E752-4115-8218-64828E028752}
+		{B0667116-2165-4F13-BD84-622AA8F29FE7} = {DB58D260-0DDF-45D3-9A65-9D0464733819}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {62280A51-57F7-4AEB-B108-3A00B1574DEA}
